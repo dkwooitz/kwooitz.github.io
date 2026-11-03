@@ -1,4 +1,4 @@
-# kwooitz-create
+# dkwooitz.github.io
 
 Personal site for Diedrik Kwooitz, management accountant (aspiring ACMA, CGMA).
 
@@ -15,4 +15,4 @@ Open `index.html` in a browser.
 
 ## Publish
 
-Settings → Pages → Deploy from a branch → `main` / root. The site is then served at `https://dkwooitz.github.io/kwooitz-create/`.
+This repo is a GitHub user site, so it is served at **https://dkwooitz.github.io** from `main` / root (Settings → Pages).
