@@ -1,0 +1,18 @@
+// Cloudflare Worker that serves kwooitz.co.za.
+// Every push to main deploys from this file. Anything set by hand in the
+// dashboard (domains, the workers.dev address) is overwritten by what is here,
+// so change these settings in this file, not in the dashboard.
+{
+  "name": "kwooitz-github-io",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "kwooitz.co.za", "custom_domain": true },
+    { "pattern": "www.kwooitz.co.za", "custom_domain": true }
+  ],
+  "workers_dev": true,
+  "preview_urls": true
+}
