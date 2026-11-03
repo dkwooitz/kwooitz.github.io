@@ -3,31 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Diedrik Kwooitz, management accountant (aspiring ACMA, CGMA). CV with working break-even and variance analysis tools.">
+<meta name="description" content="Diedrik Kwooitz, management accountant (aspiring ACMA, CGMA) who builds his own apps.">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Diedrik Kwooitz</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: a working management-accounts tool up front, the CV below it as a ledger of entries with dates in a mono margin column. */
+/* Layout: projects first, then the CV as a ledger of entries with dates in a mono margin column, skills alongside. */
 :root{
   --bg:#F2F4F3; --surface:#FFFFFF; --ink:#16211E; --muted:#5A6964; --line:#D5DCD9;
   --accent:#1D6B57; --accent-soft:#DDEDE7; --adverse:#B5462F; --adverse-soft:#F6E2DC; --fav:#1D6B57;
-  --chart-rev:#1D6B57; --chart-cost:#B5462F; --chart-fixed:#8A9792;
-  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#111816; --surface:#18211E; --ink:#E4ECE9; --muted:#97A6A1; --line:#2B3833;
   --accent:#5FC2A2; --accent-soft:#1D3530; --adverse:#EE8C74; --adverse-soft:#3A2420; --fav:#5FC2A2;
-  --chart-rev:#5FC2A2; --chart-cost:#EE8C74; --chart-fixed:#7D8C87; color-scheme:dark;
+  color-scheme:dark;
 }}
 :root[data-theme="dark"]{
   --bg:#111816; --surface:#18211E; --ink:#E4ECE9; --muted:#97A6A1; --line:#2B3833;
   --accent:#5FC2A2; --accent-soft:#1D3530; --adverse:#EE8C74; --adverse-soft:#3A2420; --fav:#5FC2A2;
-  --chart-rev:#5FC2A2; --chart-cost:#EE8C74; --chart-fixed:#7D8C87; color-scheme:dark;
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;
@@ -48,46 +47,20 @@ header.top .role{font-family:var(--display);font-weight:500;font-size:clamp(18px
 .copy:hover{color:var(--ink);border-color:var(--muted)}
 .lede{max-width:62ch;font-size:19px;margin:28px 0 0}
 
-/* Tool */
 section{padding-block:48px 0}
 .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:18px}
 .sec-head h2{font-size:30px;font-weight:700}
-.tool{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.tabs{display:flex;border-bottom:1px solid var(--line);overflow-x:auto}
-.tab{font-family:var(--body);font-size:16px;font-weight:600;background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:14px 20px;cursor:pointer;white-space:nowrap}
-.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
-.panel{padding:24px;display:grid;grid-template-columns:300px 1fr;gap:28px}
-.panel > *{min-width:0}
-.sample{font-size:14px;color:var(--muted);margin:0 0 16px;padding:8px 12px;background:var(--bg);border-radius:6px}
-.field{display:grid;gap:4px;margin-bottom:14px}
-.field label{font-size:14px;font-weight:600}
-.field .row{display:flex;align-items:center;gap:10px}
-.field input[type=number]{width:120px;font-family:var(--mono);font-size:15px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--bg);color:var(--ink);font-variant-numeric:tabular-nums}
-.field input[type=range]{flex:1;min-width:0;accent-color:var(--accent)}
-.unit{font-family:var(--mono);font-size:13px;color:var(--muted)}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:20px}
-.kpi{background:var(--surface);padding:12px 14px}
-.kpi .v{font-family:var(--mono);font-size:21px;font-weight:500;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
-.kpi .s{font-size:13px;color:var(--muted)}
-.chartbox{width:100%;max-width:100%}
-.chartbox svg{display:block;width:100%;height:auto}
-.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:8px}
-.legend i{display:inline-block;width:14px;height:3px;vertical-align:middle;margin-right:6px;border-radius:2px}
-.note{margin-top:14px;font-size:15px;max-width:62ch}
-.warn{color:var(--adverse);font-weight:600}
 
-/* Variance table */
-table.var{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
-table.var th,table.var td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:right}
-table.var th:first-child,table.var td:first-child{text-align:left}
-table.var thead th{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:400}
-table.var td.num{font-family:var(--mono)}
-table.var tr.total td{font-weight:600;border-bottom:0;border-top:2px solid var(--ink)}
-.formula{font-family:var(--mono);font-size:12.5px;color:var(--muted);display:block;margin-top:2px}
-.pill{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:500;padding:2px 8px;border-radius:999px;margin-left:8px}
-.pill.F{background:var(--accent-soft);color:var(--fav)}
-.pill.A{background:var(--adverse-soft);color:var(--adverse)}
-.tablewrap{overflow-x:auto}
+/* Projects */
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.proj .kind{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.proj h3{font-size:22px;font-weight:700}
+.proj p{margin:0;font-size:16px}
+.proj ul.feat{margin:0;padding-left:18px;font-size:15px;display:grid;gap:4px}
+.proj .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:8px}
+.proj .stack span{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:1px 7px}
+.proj .access{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
 
 /* Ledger CV */
 .ledger{display:grid;grid-template-columns:1fr 300px;gap:48px}
@@ -106,18 +79,13 @@ aside li{font-size:15px;border:1px solid var(--line);border-radius:999px;padding
 footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
 
 @media (max-width:860px){
-  .panel{grid-template-columns:1fr}
+  .projects{grid-template-columns:1fr}
   .ledger{grid-template-columns:1fr;gap:16px}
-  .kpis{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:560px){
   header.top{grid-template-columns:1fr}
   .contact{text-align:left}
   .entry{grid-template-columns:1fr;gap:4px}
-  .panel{padding:16px}
-}
-@media (prefers-reduced-motion: no-preference){
-  .chartbox path, .chartbox line, .chartbox circle{transition:all .15s ease-out}
 }
 </style>
 </head>
@@ -127,7 +95,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-si
   <header class="top">
     <div>
       <h1>Diedrik Kwooitz</h1>
-      <div class="role">Management accountant who builds the tools he uses</div>
+      <div class="role">Management accountant who builds his own tools</div>
     </div>
     <div class="contact">
       <div><span id="em">diedrikwooitz@gmail.com</span><button class="copy" data-copy="em" type="button">Copy</button></div>
@@ -136,85 +104,53 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-si
     </div>
   </header>
 
-  <p class="lede">I bring precision and a bit of creativity to financial analysis. Instead of describing that, here are two small tools I built for the kind of work I do. Change the numbers and the analysis updates.</p>
+  <p class="lede">I bring precision and a bit of creativity to financial analysis. I also build the software I wish I had: the apps below run real work and real life, and I designed, coded and deployed each one myself.</p>
 
-  <section aria-labelledby="tools-h">
+
+  <section aria-labelledby="built-h">
     <div class="sec-head">
-      <h2 id="tools-h">Working tools</h2>
-      <span class="label">Built in plain HTML, CSS and JavaScript</span>
+      <h2 id="built-h">Things I've built</h2>
+      <span class="label">Designed, built and deployed by me</span>
     </div>
-
-    <div class="tool">
-      <div class="tabs" role="tablist">
-        <button class="tab" role="tab" id="tab-cvp" aria-controls="p-cvp" aria-selected="true" type="button">Break-even &amp; CVP</button>
-        <button class="tab" role="tab" id="tab-var" aria-controls="p-var" aria-selected="false" type="button">Material variances</button>
-      </div>
-
-      <!-- CVP -->
-      <div class="panel" id="p-cvp" role="tabpanel" aria-labelledby="tab-cvp">
-        <div>
-          <p class="sample">Example figures: a small biltong producer selling 100 g packs. Not real client data.</p>
-          <div class="field"><label for="price">Selling price per pack</label>
-            <div class="row"><input type="range" id="price-r" min="20" max="200" step="1"><input type="number" id="price" min="0" step="1"><span class="unit">R</span></div></div>
-          <div class="field"><label for="vc">Variable cost per pack</label>
-            <div class="row"><input type="range" id="vc-r" min="5" max="180" step="1"><input type="number" id="vc" min="0" step="1"><span class="unit">R</span></div></div>
-          <div class="field"><label for="fc">Fixed costs per year</label>
-            <div class="row"><input type="range" id="fc-r" min="50000" max="1500000" step="5000"><input type="number" id="fc" min="0" step="1000"><span class="unit">R</span></div></div>
-          <div class="field"><label for="vol">Budgeted sales volume</label>
-            <div class="row"><input type="range" id="vol-r" min="1000" max="60000" step="500"><input type="number" id="vol" min="0" step="100"><span class="unit">packs</span></div></div>
-        </div>
-        <div>
-          <div class="kpis">
-            <div class="kpi"><div class="label">Break-even</div><div class="v" id="k-be">–</div><div class="s" id="k-ber">–</div></div>
-            <div class="kpi"><div class="label">Margin of safety</div><div class="v" id="k-mos">–</div><div class="s" id="k-mosu">–</div></div>
-            <div class="kpi"><div class="label">Profit at budget</div><div class="v" id="k-pr">–</div><div class="s" id="k-cs">–</div></div>
-            <div class="kpi"><div class="label">Operating leverage</div><div class="v" id="k-dol">–</div><div class="s">Contribution ÷ profit</div></div>
-          </div>
-          <div class="chartbox" id="chart" role="img" aria-label="Break-even chart showing revenue, total cost and fixed cost against sales volume"></div>
-          <div class="legend">
-            <span><i style="background:var(--chart-rev)"></i>Revenue</span>
-            <span><i style="background:var(--chart-cost)"></i>Total cost</span>
-            <span><i style="background:var(--chart-fixed)"></i>Fixed cost</span>
-          </div>
-          <p class="note" id="cvp-note"></p>
-        </div>
-      </div>
-
-      <!-- Variances -->
-      <div class="panel" id="p-var" role="tabpanel" aria-labelledby="tab-var" hidden>
-        <div>
-          <p class="sample">Example figures: one month of beef purchases for the same producer. Not real client data.</p>
-          <div class="field"><label for="sp">Standard price per kg</label>
-            <div class="row"><input type="number" id="sp" min="0" step="1"><span class="unit">R/kg</span></div></div>
-          <div class="field"><label for="sq">Standard usage per pack</label>
-            <div class="row"><input type="number" id="sq" min="0" step="0.01"><span class="unit">kg</span></div></div>
-          <div class="field"><label for="out">Actual packs produced</label>
-            <div class="row"><input type="number" id="out" min="0" step="10"><span class="unit">packs</span></div></div>
-          <div class="field"><label for="aq">Actual kg used</label>
-            <div class="row"><input type="number" id="aq" min="0" step="1"><span class="unit">kg</span></div></div>
-          <div class="field"><label for="ac">Actual cost of beef</label>
-            <div class="row"><input type="number" id="ac" min="0" step="10"><span class="unit">R</span></div></div>
-        </div>
-        <div>
-          <div class="tablewrap">
-            <table class="var">
-              <thead><tr><th>Variance</th><th>Amount</th></tr></thead>
-              <tbody>
-                <tr><td>Price<span class="formula">(SP × AQ) − actual cost</span></td><td class="num" id="v-price">–</td></tr>
-                <tr><td>Usage<span class="formula">(SQ for actual output − AQ) × SP</span></td><td class="num" id="v-usage">–</td></tr>
-                <tr class="total"><td>Total material cost variance<span class="formula">Standard cost of output − actual cost</span></td><td class="num" id="v-total">–</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="kpis" style="margin-top:20px">
-            <div class="kpi"><div class="label">Standard kg allowed</div><div class="v" id="v-sqa">–</div></div>
-            <div class="kpi"><div class="label">Actual price/kg</div><div class="v" id="v-ap">–</div></div>
-            <div class="kpi"><div class="label">Standard cost</div><div class="v" id="v-std">–</div></div>
-            <div class="kpi"><div class="label">Yield vs standard</div><div class="v" id="v-yield">–</div></div>
-          </div>
-          <p class="note" id="var-note"></p>
-        </div>
-      </div>
+    <div class="projects">
+      <article class="proj">
+        <div class="kind">Finance · in use at work</div>
+        <h3>Capital Management</h3>
+        <p>A capital-expenditure and fixed-asset app for Master Drilling. It follows a capital item from the application to spend, through the budget it draws on, to disposal, transfer between entities or reclassification.</p>
+        <ul class="feat">
+          <li>Budget, committed, actual and available per year, site and category, with utilisation flagged above 100%</li>
+          <li>ROI workings and strategic ranking of requests</li>
+          <li>Approval workflow, registers and Excel export that follows the active filters</li>
+          <li>37 automated test suites</li>
+        </ul>
+        <div class="stack"><span>JavaScript</span><span>Cloudflare Workers</span><span>D1 (SQL)</span></div>
+        <div class="access">Internal company system. Walkthrough on request.</div>
+      </article>
+      <article class="proj">
+        <div class="kind">Personal · daily use</div>
+        <h3>Car-diology</h3>
+        <p>A phone app for our two cars that remembers what nobody remembers: oil changes, cambelt intervals, licence-disc renewal and tyre pressures.</p>
+        <ul class="feat">
+          <li>Forecasts when tyres need replacing from odometer readings and tread-gauge checks</li>
+          <li>Push reminders and a calendar of upcoming jobs</li>
+          <li>Face ID sign-in with passkeys, session security and rate limiting</li>
+          <li>Installs to the home screen like a native app</li>
+        </ul>
+        <div class="stack"><span>JavaScript</span><span>Cloudflare Workers</span><span>D1</span><span>WebAuthn</span><span>Web Push</span></div>
+        <div class="access">Private app behind a sign-in. Demo on request.</div>
+      </article>
+      <article class="proj">
+        <div class="kind">Personal · live</div>
+        <h3>Wedding website</h3>
+        <p>The invitation site for our wedding in April 2027, with our story, venue details, an FAQ, a countdown and an RSVP form.</p>
+        <ul class="feat">
+          <li>Plain HTML, CSS and JavaScript with no build step</li>
+          <li>Deploys automatically from Git on every push</li>
+          <li>Security and caching headers, kept out of search engines</li>
+        </ul>
+        <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Cloudflare</span></div>
+        <div class="access">Shared with guests only. Link on request.</div>
+      </article>
     </div>
   </section>
 
@@ -285,7 +221,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-si
       <aside>
         <div class="block">
           <span class="label">Skills</span>
-          <ul><li>Excel &amp; Microsoft 365</li><li>Building small web tools</li><li>Financial reporting</li><li>Problem-solving</li><li>Communication</li><li>Client relationships</li></ul>
+          <ul><li>Excel &amp; Microsoft 365</li><li>JavaScript, HTML &amp; CSS</li><li>Cloudflare Workers &amp; SQL</li><li>Financial reporting</li><li>Problem-solving</li><li>Communication</li><li>Client relationships</li></ul>
         </div>
         <div class="block">
           <span class="label">Languages</span>
@@ -304,14 +240,11 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-si
     </div>
   </section>
 
-  <footer>Variances follow CIMA convention: F is favourable, A is adverse. All tool figures are illustrative.</footer>
 </div>
 
 <script>
 (function(){
   const $ = id => document.getElementById(id);
-  const R = n => (n < 0 ? "−R" : "R") + Math.abs(Math.round(n)).toLocaleString("en-US").replace(/,/g, " ");
-  const N = (n, d=0) => Number(n).toLocaleString("en-US", {minimumFractionDigits:d, maximumFractionDigits:d}).replace(/,/g, " ");
 
   // copy buttons
   document.querySelectorAll(".copy").forEach(b => b.addEventListener("click", () => {
@@ -321,113 +254,6 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-si
     try { navigator.clipboard.writeText(txt).then(done, fallback); } catch(e){ fallback(); }
   }));
 
-  // tabs
-  const tabs = [...document.querySelectorAll(".tab")];
-  tabs.forEach(t => t.addEventListener("click", () => {
-    tabs.forEach(x => { const on = x === t; x.setAttribute("aria-selected", on); $(x.getAttribute("aria-controls")).hidden = !on; });
-  }));
-
-  // ---------- CVP ----------
-  const cvp = {price:85, vc:52, fc:396000, vol:18000};
-  ["price","vc","fc","vol"].forEach(k => {
-    const num = $(k), rng = $(k+"-r");
-    num.value = rng.value = cvp[k];
-    num.addEventListener("input", () => { cvp[k] = +num.value || 0; rng.value = cvp[k]; drawCVP(); });
-    rng.addEventListener("input", () => { cvp[k] = +rng.value; num.value = cvp[k]; drawCVP(); });
-  });
-
-  function niceStep(max, count){
-    const raw = max / count, mag = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / mag;
-    return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 5 ? 5 : 10) * mag;
-  }
-  const short = n => n >= 1e6 ? (n/1e6).toFixed(n%1e6?1:0)+"m" : n >= 1e3 ? (n/1e3).toFixed(0)+"k" : String(n);
-
-  function drawCVP(){
-    const {price:p, vc:v, fc:F, vol:Q} = cvp;
-    const c = p - v, ok = c > 0 && p > 0;
-    const be = ok ? F / c : Infinity;
-    const profit = c * Q - F;
-    $("k-be").textContent = ok ? N(Math.ceil(be)) + " packs" : "None";
-    $("k-ber").textContent = ok ? R(be * p) + " revenue" : "Price must exceed variable cost";
-    const mos = Q > 0 && ok ? (Q - be) / Q : NaN;
-    $("k-mos").textContent = isFinite(mos) ? N(mos*100,1) + "%" : "–";
-    $("k-mosu").textContent = isFinite(mos) ? N(Math.round(Q - be)) + " packs" : "–";
-    $("k-pr").textContent = R(profit);
-    $("k-pr").style.color = profit < 0 ? "var(--adverse)" : "";
-    $("k-cs").textContent = ok ? "C/S ratio " + N(c/p*100,1) + "%" : "–";
-    $("k-dol").textContent = profit > 0 ? N(c*Q/profit,2) + "×" : "n/a";
-
-    let note;
-    if (!ok) note = '<span class="warn">Each pack loses money before fixed costs.</span> No volume of sales breaks even at this price.';
-    else if (profit < 0) note = `<span class="warn">Budget is below break-even.</span> You need ${N(Math.ceil(be - Q))} more packs, or a price of ${R(v + F/Math.max(Q,1))} at the current volume, to cover fixed costs.`;
-    else note = `Sales can fall ${N(mos*100,0)}% before the business makes a loss. A 10% rise in volume lifts profit by ${N(c*Q/profit*10,0)}%, which is what operating leverage of ${N(c*Q/profit,2)}× means in practice.`;
-    $("cvp-note").innerHTML = note;
-
-    // chart
-    const W = 640, H = 330, m = {l:62, r:16, t:16, b:44};
-    const xMax = Math.max(Q, isFinite(be) ? be : 0, 1000) * 1.35;
-    const yMax = Math.max(p * xMax, F + v * xMax) * 1.05;
-    const sx = x => m.l + x / xMax * (W - m.l - m.r);
-    const sy = y => H - m.b - y / yMax * (H - m.t - m.b);
-    const xs = niceStep(xMax, 5), ys = niceStep(yMax, 5);
-    let g = "";
-    for (let y = 0; y <= yMax; y += ys) g += `<line x1="${m.l}" x2="${W-m.r}" y1="${sy(y)}" y2="${sy(y)}" stroke="var(--line)" stroke-width="1"/><text x="${m.l-8}" y="${sy(y)+4}" text-anchor="end" font-size="11" font-family="IBM Plex Mono, monospace" fill="var(--muted)">R${short(y)}</text>`;
-    for (let x = 0; x <= xMax; x += xs) g += `<text x="${sx(x)}" y="${H-m.b+18}" text-anchor="middle" font-size="11" font-family="IBM Plex Mono, monospace" fill="var(--muted)">${short(x)}</text>`;
-    g += `<text x="${(m.l+W-m.r)/2}" y="${H-6}" text-anchor="middle" font-size="12" fill="var(--muted)" font-family="Source Sans 3, sans-serif">Packs sold per year</text>`;
-
-    // profit / loss shading
-    if (ok && be < xMax) {
-      g += `<polygon points="${sx(0)},${sy(0)} ${sx(0)},${sy(F)} ${sx(be)},${sy(F+v*be)}" fill="var(--adverse)" fill-opacity=".12"/>`;
-      g += `<polygon points="${sx(be)},${sy(p*be)} ${sx(xMax)},${sy(p*xMax)} ${sx(xMax)},${sy(F+v*xMax)}" fill="var(--accent)" fill-opacity=".14"/>`;
-    }
-    g += `<line x1="${sx(0)}" y1="${sy(F)}" x2="${sx(xMax)}" y2="${sy(F)}" stroke="var(--chart-fixed)" stroke-width="1.5" stroke-dasharray="5 4"/>`;
-    g += `<line x1="${sx(0)}" y1="${sy(F)}" x2="${sx(xMax)}" y2="${sy(F+v*xMax)}" stroke="var(--chart-cost)" stroke-width="2.5"/>`;
-    g += `<line x1="${sx(0)}" y1="${sy(0)}" x2="${sx(xMax)}" y2="${sy(p*xMax)}" stroke="var(--chart-rev)" stroke-width="2.5"/>`;
-    // budget marker
-    g += `<line x1="${sx(Q)}" x2="${sx(Q)}" y1="${m.t}" y2="${H-m.b}" stroke="var(--ink)" stroke-width="1" stroke-dasharray="2 3"/>`;
-    const bLabelRight = sx(Q) < W - 110;
-    g += `<text x="${sx(Q) + (bLabelRight?6:-6)}" y="${m.t+12}" text-anchor="${bLabelRight?'start':'end'}" font-size="12" fill="var(--ink)" font-family="Source Sans 3, sans-serif">Budget ${N(Q)}</text>`;
-    if (ok && be < xMax) {
-      const bx = sx(be), by = sy(p*be);
-      g += `<circle cx="${bx}" cy="${by}" r="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/>`;
-      const left = bx > m.l + 120;
-      g += `<text x="${bx + (left?-10:10)}" y="${by - 10}" text-anchor="${left?'end':'start'}" font-size="12" font-weight="600" fill="var(--ink)" font-family="Source Sans 3, sans-serif">Break-even ${N(Math.ceil(be))}</text>`;
-    }
-    g += `<line x1="${m.l}" x2="${W-m.r}" y1="${H-m.b}" y2="${H-m.b}" stroke="var(--muted)" stroke-width="1"/>`;
-    $("chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
-  }
-  drawCVP();
-
-  // ---------- Variances ----------
-  const vr = {sp:140, sq:0.6, out:1500, aq:940, ac:128780};
-  Object.keys(vr).forEach(k => { const el = $(k); el.value = vr[k]; el.addEventListener("input", () => { vr[k] = +el.value || 0; calcVar(); }); });
-
-  function fa(n){
-    const r = Math.round(n);
-    if (r === 0) return R(0);
-    const t = r > 0 ? "F" : "A";
-    return `${R(Math.abs(r))}<span class="pill ${t}">${t}</span>`;
-  }
-  function calcVar(){
-    const {sp, sq, out, aq, ac} = vr;
-    const sqa = sq * out, std = sqa * sp;
-    const price = sp * aq - ac, usage = (sqa - aq) * sp, total = std - ac;
-    $("v-price").innerHTML = fa(price);
-    $("v-usage").innerHTML = fa(usage);
-    $("v-total").innerHTML = fa(total);
-    $("v-sqa").textContent = N(sqa, 1) + " kg";
-    $("v-ap").textContent = aq > 0 ? "R" + N(ac/aq, 2) : "–";
-    $("v-std").textContent = R(std);
-    $("v-yield").textContent = aq > 0 ? N(sqa/aq*100, 1) + "%" : "–";
-
-    let note;
-    if (price >= 0 && usage < 0) note = `Buying saved ${R(price)}, but using ${N(aq - sqa,0)} kg more than standard cost ${R(-usage)}. Cheaper beef may be trimming worse. Check yield before treating the price saving as a win.`;
-    else if (price < 0 && usage >= 0) note = `Usage was efficient, but beef cost ${R(-price)} more than standard. Review supplier pricing or update the standard if the market has moved.`;
-    else if (price < 0 && usage < 0) note = `Both price and usage are adverse. This needs a conversation with purchasing and production.`;
-    else note = `Both variances are favourable. If this repeats, the standard may be too loose and worth tightening.`;
-    $("var-note").textContent = note;
-  }
-  calcVar();
 })();
 </script>
 </body>
